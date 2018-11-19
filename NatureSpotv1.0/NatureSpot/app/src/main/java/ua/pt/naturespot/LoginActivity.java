@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 
@@ -39,10 +40,10 @@ public class LoginActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
         ImageView image = (ImageView) findViewById(R.id.logo);
         image.setImageResource(R.drawable.jhg);
-
         // Load a bitmap from the drawable folder
         Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.jhg);
 
@@ -51,14 +52,38 @@ public class LoginActivity extends AppCompatActivity implements
         // Loads the resized Bitmap into an ImageView
         image.setImageBitmap(BitmapScaler.scaleToFitWidth(bMap, screenWidth));
         //image.setImageBitmap(BitmapScaler.scaleToFitHeight(bMap, screenWidth));
+
         mSignInButton = (SignInButton) findViewById(R.id.button);
+
+        // Set click listeners
         mSignInButton.setOnClickListener(this);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
         mFirebaseAuth = FirebaseAuth.getInstance();
     }
 
-    public void login(View view) {
+    public void login() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    private void handleFirebaseAuthResult(AuthResult authResult) {
+        if (authResult != null) {
+            // Welcome the user
+            FirebaseUser user = authResult.getUser();
+            Toast.makeText(this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
+
+            // Go back to the main activity
+            startActivity(new Intent(this, Home.class));
+        }
     }
 
     @Override
@@ -67,8 +92,11 @@ public class LoginActivity extends AppCompatActivity implements
             case R.id.button:
                 login();
                 break;
+            default:
+                return;
         }
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -105,7 +133,7 @@ public class LoginActivity extends AppCompatActivity implements
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(LoginActivity.this, Home.class));
                             finish();
                         }
                     }
