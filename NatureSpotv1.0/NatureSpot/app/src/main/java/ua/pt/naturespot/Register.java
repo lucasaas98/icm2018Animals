@@ -1,6 +1,8 @@
 package ua.pt.naturespot;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +32,17 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_signin);
+
+        ImageView image = (ImageView) findViewById(R.id.logo);
+        image.setImageResource(R.drawable.jhg);
+        // Load a bitmap from the drawable folder
+        Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.jhg);
+
+        // Get height or width of screen at runtime
+        int screenWidth = DeviceDimensionsHelper.getDisplayWidth(this);
+        // Loads the resized Bitmap into an ImageView
+        image.setImageBitmap(BitmapScaler.scaleToFitWidth(bMap, screenWidth));
+        //image.setImageBitmap(BitmapScaler.scaleToFitHeight(bMap, screenWidth));
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
