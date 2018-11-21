@@ -27,13 +27,19 @@ public class Register extends AppCompatActivity {
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_signin);
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
         email = findViewById(R.id.editText2);
         password = findViewById(R.id.editText);
         mRegisterButton = (Button) findViewById(R.id.button2);
+
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 mFirebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
