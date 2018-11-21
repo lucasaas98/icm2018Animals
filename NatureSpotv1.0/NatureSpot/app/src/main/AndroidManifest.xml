@@ -29,6 +29,8 @@
             android:name=".EditProfile"
             android:label="Your Profile"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Register" />
     </application>
 
 </manifest>

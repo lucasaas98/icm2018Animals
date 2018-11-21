@@ -6,5 +6,6 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorDarkGray">#6c6c6c</color>
     <color name="colorBlack">#000000</color>
+    <color name="loginView">#f9d7db</color>
 
 </resources>

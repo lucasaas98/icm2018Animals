@@ -23,4 +23,6 @@
     <string name="sign_up">Sign up</string>
     <string name="forget_your_password">Forget your Password?</string>
     <string name="remember_me">Remember me</string>
+    <string name="todo">TODO</string>
+    <string name="sign_in">Sign In</string>
 </resources>
