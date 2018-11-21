@@ -19,16 +19,7 @@
 
         <activity
             android:name=".Home"
-            android:label="My Observations"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".Explore"
-            android:label="Explore Sightings"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".EditProfile"
-            android:label="Your Profile"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="My Observations"/>
         <activity
             android:name=".Register" />
     </application>
