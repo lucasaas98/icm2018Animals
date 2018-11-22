@@ -1,2 +1,2 @@
 # icm2018Animals
-ICM - University of Aveiro. An app about animals!
+ICM - University of Aveiro. An app about animals! (IUPI)
