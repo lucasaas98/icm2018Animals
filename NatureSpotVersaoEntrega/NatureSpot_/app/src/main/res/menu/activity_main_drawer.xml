@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"/>
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="My Observations" />
+    <item
+        android:id="@+id/nav_explore"
+        android:icon="@drawable/ic_explore_black_24dp"
+        android:title="Explore" />
+    <item
+        android:id="@+id/nav_editprofile"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="Edit Profile" />
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        android:title="Logout" />
+
+
+</menu>
