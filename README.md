@@ -2,7 +2,14 @@
 ICM - University of Aveiro. An app about reptils
 
 
-You can create an account but if you'd prefer you can use the example one which has these credentials:
-1. Email = "email@email.com"
+To use the app as a normal user:
+1. Email = "normal1@email.com"
 2. Password = "password"
 
+To use the app as a verified user:
+1. Email = "verified1@email.com"
+2. Password = "password"
+
+To use the app as a moderator:
+1. Email = "moderator@email.com"
+2. Password = "password"

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NatureSpot</string>
+    <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
+    <string name="navigation_drawer_close">Fechar gaveta de Navegação</string>
+    <string name="nav_header_desc">Cabeçalho de navegação</string>
+    <string name="action_settings">Definição</string>
+    <string name="my_observations">As minhas observações</string>
+    <string name="explore">Explorar</string>
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="logout">Terminar Sessão</string>
+    <string name="action_example">Ação de exemplo</string>
+    <string name="username">Nome de Utilizador</string>
+    <string name="password">Palavra-passe</string>
+    <string name="log_in">Iniciar Sessão</string>
+    <string name="sign_up">Registar</string>
+    <string name="forget_your_password">Esqueceu-se da palavra-passe</string>
+    <string name="remember_me">Lembrar credenciais</string>
+    <string name="sign_in">Registar</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="do_you_want_to_become_a_verifier_click_here">Queres tornar-te verificador?<u>Clica Aqui!</u></string>
+    <string name="sort_alphabetically">Ordem Alfabética</string>
+    <string name="sort_numerically">Ordem Numérica</string>
+    <string name="scientific_name">Nome Científico</string>
+</resources>

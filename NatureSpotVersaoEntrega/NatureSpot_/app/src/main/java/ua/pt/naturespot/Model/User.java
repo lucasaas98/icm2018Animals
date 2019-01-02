@@ -1,51 +1,68 @@
 package ua.pt.naturespot.Model;
 
-import android.text.TextUtils;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class User {
 
-    public String name;
-    public String email;
+    private String userName;
+    private String userEmail;
+    private String userImage;
+    private String userDistrict;
+    private String userDescription;
+    private String userVerifier;
 
-    // Default constructor required for calls to
-    // DataSnapshot.getValue(User.class)
+    // DEFAULT CONSTRUCTOR:
     public User() {
     }
 
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
+
+    // CONSTRUCTOR:
+    public User(String name, String email, String userImage, String userDistrict, String userDescription, String verifier) {
+        this.userName = name;
+        this.userEmail = email;
+        this.userImage = userImage;
+        this.userDistrict = userDistrict;
+        this.userDescription = userDescription;
+        this.userVerifier = verifier;
     }
 
-    public void saveUser(){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
-        // new user node would be /users/$userid/
-        String userId = mDatabase.push().getKey();
-        // Check for already existed userId
-        if (TextUtils.isEmpty(userId)) {
-            mDatabase.child(userId).setValue(this);
-        }else{
-            mDatabase.child(userId).setValue(this);
-        }
+    // GETTERS:
+    public String getUserName() {
+        return userName;
+    }
+    public String getUserEmail() {
+        return userEmail;
+    }
+    public String getUserImage() {
+        return userImage;
+    }
+    public String getUserDistrict() {
+        return userDistrict;
+    }
+    public String getUserDescription() {
+        return userDescription;
+    }
+    public String getUserVerifier() {
+        return userVerifier;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
+    //SETTERS:
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
-    public String getEmail() {
-        return email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+    public void setUserDistrict(String userDistrict) {
+        this.userDistrict = userDistrict;
+    }
+    public void setUserDescription(String userDescription) {
+        this.userDescription = userDescription;
+    }
+    public void setUserVerifier(String verifier) {
+        this.userVerifier = verifier;
     }
 }

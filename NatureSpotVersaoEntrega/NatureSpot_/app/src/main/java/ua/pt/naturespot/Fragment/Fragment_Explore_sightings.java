@@ -39,7 +39,7 @@ public class Fragment_Explore_sightings extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference dbRef= db.getReference();
-        View view = inflater.inflate(R.layout.fragment_showsighting, container, false);
+        View view = inflater.inflate(R.layout.fragment_explore_sightings, container, false);
         final View view2 = view;
         final ImageView ivImage = view.findViewById(R.id.ivImage);
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -56,7 +56,12 @@ public class Fragment_Explore_sightings extends Fragment {
                         String description = (String) nice.child("description").getValue();
                         String location = (String) nice.child("location").getValue();
                         String imageUrl = (String) nice.child("photoURL").getValue();
-                        SightingsData sd = new SightingsData(name, description, location, imageUrl, data);
+                        String species = (String) nice.child("species").getValue();
+                        String species_fancy = (String) nice.child("species_fancy").getValue();
+                        String verified = (String) nice.child("verified").getValue();
+                        String identifier = (String) nice.child("identifier").getValue();
+                        String id = nice.getKey();
+                        SightingsData sd = new SightingsData(name, description, location, imageUrl, data, id, fin.getKey(), species, species_fancy, verified, identifier);
                         mSightingList.add(sd);
                     }
                 }

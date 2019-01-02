@@ -3,6 +3,7 @@ package ua.pt.naturespot.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,6 +45,10 @@ public class Fragment_MySightings_sightings extends Fragment {
 
         final String uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         View view = inflater.inflate(R.layout.fragment_mysightings_sightings, container, false);
+
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.show();
+
         final View view2 = view;
         final ImageView ivImage = view.findViewById(R.id.ivImage);
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -59,7 +64,12 @@ public class Fragment_MySightings_sightings extends Fragment {
                     String description = (String) fin.child("description").getValue();
                     String location = (String) fin.child("location").getValue();
                     String imageUrl = (String) fin.child("photoURL").getValue();
-                    SightingsData sd = new SightingsData(name, description, location, imageUrl, data);
+                    String specie = (String) fin.child("species").getValue();
+                    String species_fancy = (String) fin.child("species_fancy").getValue();
+                    String verified = (String) fin.child("verified").getValue();
+                    String identifier = (String) fin.child("identifier").getValue();
+                    String id = fin.getKey();
+                    SightingsData sd = new SightingsData(name, description, location, imageUrl, data, id, uuid, specie, species_fancy,verified, identifier);
                     mSightingList.add(sd);
 
                 }
@@ -82,4 +92,6 @@ public class Fragment_MySightings_sightings extends Fragment {
         return view;
     }
 
-  }
+
+
+}

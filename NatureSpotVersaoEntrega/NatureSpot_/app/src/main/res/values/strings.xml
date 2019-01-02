@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">NatureSpot</string>
+    <string name="app_name" translatable="false">NatureSpot</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="my_observations">My Observations</string>
@@ -18,7 +18,13 @@
     <string name="sign_up">Sign up</string>
     <string name="forget_your_password">Forget your Password?</string>
     <string name="remember_me">Remember me</string>
-    <string name="todo">TODO</string>
+    <string name="todo" translatable="false">TODO</string>
     <string name="sign_in">Sign In</string>
     <string name="title_activity_maps">Map</string>
+    <string name="do_you_want_to_become_a_verifier_click_here">Do you want to become a verifier? <u>Click here!</u></string>
+
+    <string name="sort_alphabetically">Sort Alphabetically</string>
+    <string name="sort_numerically">Sort Numerically</string>
+    <string name="sort_by_region" translatable="false">Sort by Region</string>
+    <string name="scientific_name">Scientific Name</string>
 </resources>

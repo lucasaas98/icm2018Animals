@@ -61,6 +61,7 @@ public class Fragment_AddSightings extends AppCompatActivity implements GoogleAp
     private EditText mETLocation;
     private EditText mName;
     private EditText mETDescription;
+    private EditText mSpecie;
 
     private GoogleApiClient mGoogleApiClient;
     private Location mLocation;
@@ -147,6 +148,8 @@ public class Fragment_AddSightings extends AppCompatActivity implements GoogleAp
 
         mETDescription = findViewById(R.id.editText8);
         mName = findViewById(R.id.editText3);
+        mSpecie = findViewById(R.id.editText6);
+
     }
 
 
@@ -278,6 +281,9 @@ public class Fragment_AddSightings extends AppCompatActivity implements GoogleAp
                 report.put("description",mETDescription.getText().toString());
                 report.put("photoURL",AddSightingRef.getPath());
                 report.put("location",mETLocation.getText().toString());
+                report.put("species", mSpecie.getText().toString());
+                report.put("species_fancy", "Not Identified");
+                report.put("identifier", "Not Identified");
                 mDatabase.getReference("Sightings").child(report_id).child("sightings").child(timestamp).setValue(report);
                 Fragment_AddSightings.this.finish();
             }

@@ -4,9 +4,17 @@
     <group android:checkableBehavior="single"/>
 
     <item
+        android:id="@+id/nav_moderate"
+        android:icon="@drawable/ic_bubble_chart_black_24dp"
+        android:title="Moderator Options" />
+    <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="My Observations" />
+    <item
+        android:id="@+id/nav_identifications"
+        android:icon="@drawable/ic_attachment_black_24dp"
+        android:title="My Identifications" />
     <item
         android:id="@+id/nav_explore"
         android:icon="@drawable/ic_explore_black_24dp"
